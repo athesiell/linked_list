@@ -107,6 +107,27 @@ class LinkedList
     string += " nil"
   end
 
+  def insert_at(value, index)
+    if index.negative?
+      nil
+    elsif index == 0
+      prepend(value)
+    elsif index == @size
+      append(value)
+    else
+      node = Node.new(value)
+      current_node = @head
+      idx = 0
+      while idx < index - 1
+        current_node = current_node.next_node
+        idx += 1
+      end
+      node.next_node = current_node.next_node
+      current_node.next_node = node
+      @size += 1
+    end
+  end
+
 end
 
 class Node
@@ -135,4 +156,7 @@ list.find("C++")
 list.contains?("Ruby")
 list.contains?("Golang")
 
+list.to_s
+
+list.insert_at('hello', 1)
 list.to_s
