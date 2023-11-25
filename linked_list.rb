@@ -104,7 +104,7 @@ class LinkedList
       string += "( #{current_node.value} ) ->"
       current_node = current_node.next_node
     end
-    string += "nil"
+    string += " nil"
   end
 
 end
@@ -117,3 +117,22 @@ class Node
     @next_node = next_node
   end
 end
+
+list = LinkedList.new
+list.append("Ruby")
+list.prepend ("Python")
+
+list.size
+
+list.append("Rust")
+list.pop
+
+list.at(0)
+
+list.find("Ruby")
+list.find("C++")
+
+list.contains?("Ruby")
+list.contains?("Golang")
+
+list.to_s
